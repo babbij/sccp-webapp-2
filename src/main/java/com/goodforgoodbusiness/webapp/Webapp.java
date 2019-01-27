@@ -48,5 +48,11 @@ public class Webapp {
 		
 		service.awaitInitialization();
 	}
+	
+	public final void stop() {
+		if (service != null) {
+			service.stop();
+		}
+	}
 }
 
