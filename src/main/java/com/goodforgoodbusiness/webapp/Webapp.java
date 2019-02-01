@@ -3,6 +3,8 @@ package com.goodforgoodbusiness.webapp;
 import java.io.IOException;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
+
 import com.goodforgoodbusiness.webapp.cors.CorsFilter;
 import com.goodforgoodbusiness.webapp.cors.CorsRoute;
 import com.goodforgoodbusiness.webapp.error.BadRequestException;
@@ -18,6 +20,8 @@ import spark.Service;
 
 @Singleton
 public class Webapp {
+	private static final Logger log = Logger.getLogger(Webapp.class);
+	
 	protected final int port;
 	protected final Map<Resource, Route> routes;
 	
@@ -41,6 +45,8 @@ public class Webapp {
 	}
 	
 	public final void start() {
+		log.info("Starting webapp on " + port);
+		
 		service = Service.ignite();
 		service.port(port);
 		
