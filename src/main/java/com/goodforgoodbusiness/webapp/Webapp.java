@@ -5,8 +5,8 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 
-import com.goodforgoodbusiness.webapp.cors.CorsFilter;
-import com.goodforgoodbusiness.webapp.cors.CorsRoute;
+import com.goodforgoodbusiness.webapp.cors.CORSFilter;
+import com.goodforgoodbusiness.webapp.cors.CORSRoute;
 import com.goodforgoodbusiness.webapp.error.BadRequestException;
 import com.goodforgoodbusiness.webapp.error.BadRequestExceptionHandler;
 import com.goodforgoodbusiness.webapp.error.IOExceptionHandler;
@@ -34,8 +34,10 @@ public class Webapp {
 	}
 	
 	protected void configure() {
-		service.options("/*", new CorsRoute());
-		service.before(new CorsFilter());
+//		service.before(new JWTFilter());
+		
+		service.options("/*", new CORSRoute());
+		service.before(new CORSFilter());
 		
 		routes.forEach((resource, route) -> 
 			service.addRoute(resource.method, RouteImpl.create(resource.path, route)));
