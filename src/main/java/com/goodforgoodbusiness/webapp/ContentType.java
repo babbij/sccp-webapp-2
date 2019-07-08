@@ -1,11 +1,11 @@
 package com.goodforgoodbusiness.webapp;
 
 public enum ContentType {
-	json("application/json"),
+	JSON("application/json"),
 	text("text/plain"),
 	
-	sparql_query("application/sparql-query"),
-	sparql_update("application/sparql-update")
+	SPARQL_QUERY("application/sparql-query"),
+	SPARQL_UPDATE("application/sparql-update")
 	
 	;
 	
@@ -17,6 +17,10 @@ public enum ContentType {
 	
 	public String getContentTypeString() {
 		return contentTypeString;
+	}
+	
+	public boolean matches(String contentTypeHeader) {
+		return (contentTypeHeader != null) && contentTypeHeader.equalsIgnoreCase(contentTypeString);
 	}
 	
 	@Override

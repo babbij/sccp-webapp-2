@@ -1,66 +1,44 @@
 package com.goodforgoodbusiness.webapp;
 
-import java.io.IOException;
-import java.util.Map;
+import static io.vertx.core.Vertx.vertx;
 
-import org.apache.log4j.Logger;
-
-import com.goodforgoodbusiness.webapp.cors.CORSFilter;
-import com.goodforgoodbusiness.webapp.cors.CORSRoute;
-import com.goodforgoodbusiness.webapp.error.BadRequestException;
-import com.goodforgoodbusiness.webapp.error.BadRequestExceptionHandler;
-import com.goodforgoodbusiness.webapp.error.IOExceptionHandler;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import com.google.inject.name.Named;
 
-import spark.Route;
-import spark.RouteImpl;
-import spark.Service;
+import io.vertx.core.DeploymentOptions;
+import io.vertx.core.Vertx;
+import io.vertx.core.VertxOptions;
 
+/**
+ * Starts the Vert.x subsystem
+ * @author ijmad
+ */
 @Singleton
-public class Webapp {
-	private static final Logger log = Logger.getLogger(Webapp.class);
+public class VerticleRunner {
+	private final VertxOptions vertxOptions;
+	private final DeploymentOptions deployOptions;
 	
-	protected final int port;
-	protected final Map<Resource, Route> routes;
-	
-	protected Service service = null;
+	private final Vertx vertx;
+	private final VerticleServer verticle;
 	
 	@Inject
-	public Webapp(@Named("port") int port, Map<Resource, Route> routes) {
-		this.port = port;
-		this.routes = routes;
+	public VerticleRunner(VerticleServer verticle) {
+		// XXX inject these?
+		this.vertxOptions = new VertxOptions();
+		this.vertxOptions.getEventBusOptions().setClustered(false);
+		this.deployOptions = new DeploymentOptions();
+		
+		this.vertx = vertx(vertxOptions);
+		
+		this.verticle = verticle;
 	}
 	
-	protected void configure() {
-//		service.before(new JWTFilter());
-		
-		service.options("/*", new CORSRoute());
-		service.before(new CORSFilter());
-		
-		routes.forEach((resource, route) -> 
-			service.addRoute(resource.method, RouteImpl.create(resource.path, route)));
-		
-		service.exception(BadRequestException.class, new BadRequestExceptionHandler());
-		service.exception(IOException.class, new IOExceptionHandler());
+	public void start() {
+		this.vertx.deployVerticle(verticle, deployOptions);
 	}
 	
-	public final void start() {
-		log.info("Starting webapp on " + port);
-		
-		service = Service.ignite();
-		service.port(port);
-		
-		configure();
-		
-		service.awaitInitialization();
-	}
-	
-	public final void stop() {
-		if (service != null) {
-			service.stop();
-		}
+	public void stop() {
+//		this.vertx.undeploy(deploymentID);
 	}
 }
 
