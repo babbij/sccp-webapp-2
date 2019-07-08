@@ -6,20 +6,21 @@
 
 	<parent>
 		<groupId>org.goodforgoodbusiness</groupId>
-		<artifactId>sccp-lib</artifactId>
-		<version>0.1-SNAPSHOT</version>
-		<relativePath>../pom.xml</relativePath>
+		<artifactId>sccp</artifactId>
+		<version>0.2-SNAPSHOT</version>
+		<relativePath>../../pom.xml</relativePath>
 	</parent>
 
 	<artifactId>webapp</artifactId>
+	<version>0.2-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>SCCP Webapp Commons</name>
 
 	<dependencies>
 		<dependency>
-			<groupId>com.sparkjava</groupId>
-			<artifactId>spark-core</artifactId>
-			<version>2.7.2</version>
+		    <groupId>io.vertx</groupId>
+		    <artifactId>vertx-web</artifactId>
+		    <version>3.7.1</version>
 		</dependency>
 		
 		<dependency>
