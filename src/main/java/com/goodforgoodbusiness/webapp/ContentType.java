@@ -2,7 +2,7 @@ package com.goodforgoodbusiness.webapp;
 
 public enum ContentType {
 	JSON("application/json"),
-	text("text/plain"),
+	TEXT("text/plain"),
 	
 	SPARQL_QUERY("application/sparql-query"),
 	SPARQL_UPDATE("application/sparql-update")
