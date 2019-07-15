@@ -12,7 +12,6 @@ import com.google.inject.name.Named;
 
 import io.vertx.core.DeploymentOptions;
 import io.vertx.core.Vertx;
-import io.vertx.core.VertxOptions;
 import io.vertx.core.http.HttpServer;
 
 /**
@@ -27,27 +26,18 @@ public class BaseServer {
 		System.setProperty("vertx.cwd", cwd);
 	}
 	
-	private final int port;
-	
-	private final VertxOptions vertxOptions;
-	private final DeploymentOptions deployOptions;
-	
 	private final Vertx vertx;
+	private final int port;
+	private final DeploymentOptions deployOptions;
 	private final BaseVerticle verticle;
 	
 	private HttpServer httpServer = null;
 	
 	@Inject
-	public BaseServer(@Named("port") int port, BaseVerticle verticle) {
+	public BaseServer(Vertx vertx, @Named("port") int port, BaseVerticle verticle) {
+		this.vertx = vertx;
 		this.port = port;
-		
-		// XXX inject these
-		this.vertxOptions = new VertxOptions();
-		this.vertxOptions.getEventBusOptions().setClustered(false);
 		this.deployOptions = new DeploymentOptions();
-		
-		this.vertx = vertx(vertxOptions);
-		
 		this.verticle = verticle;
 	}
 	

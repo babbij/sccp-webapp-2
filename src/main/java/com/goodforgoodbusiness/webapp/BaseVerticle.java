@@ -45,7 +45,7 @@ public class BaseVerticle extends AbstractVerticle {
 	private Router router;
 
 	@Inject
-	protected BaseVerticle(HandlerProvider provider) {
+	public BaseVerticle(HandlerProvider provider) {
 		this.provider = provider;
 	}
 	

@@ -3,6 +3,7 @@ package com.goodforgoodbusiness.webapp;
 public enum ContentType {
 	JSON("application/json"),
 	TEXT("text/plain"),
+	OCTET_STREAM("application/octet-stream"),
 	
 	SPARQL_QUERY("application/sparql-query"),
 	SPARQL_UPDATE("application/sparql-update")
