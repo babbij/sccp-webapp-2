@@ -1,7 +1,5 @@
 package com.goodforgoodbusiness.webapp;
 
-import static io.vertx.core.Vertx.vertx;
-
 import java.nio.file.Paths;
 
 import org.apache.log4j.Logger;
@@ -46,7 +44,7 @@ public class BaseServer {
 		
 		log.info("Starting webapp on " + port);
 		
-		this.httpServer = vertx()
+		this.httpServer = vertx
 			.createHttpServer()
 			.requestHandler(verticle.getRouter())
 			.listen(port)
