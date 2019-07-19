@@ -13,7 +13,7 @@ import io.vertx.core.streams.ReadStream;
 /**
  * Wraps Vert.x asynchronous input in an InputStream that can be consumed by other blocking ops
  */
-public class InputReadStream extends InputStream {
+public class ReadStreamToInputStream extends InputStream {
 	private static interface Consumer {
 		public int read() throws IOException;
 		
@@ -28,7 +28,7 @@ public class InputReadStream extends InputStream {
 	private final BlockingQueue<Consumer> queue = new LinkedBlockingQueue<>();
 	private Consumer current = null;
     
-    public InputReadStream(final ReadStream<Buffer> input) {
+    public ReadStreamToInputStream(final ReadStream<Buffer> input) {
 		input
             .handler(this::handleBuffer)
             .exceptionHandler(ex -> queue.add(() -> { throw new IOException(ex); }))

@@ -11,13 +11,13 @@ import java.io.OutputStream;
 /**
  * Wrap a Vert.x {@link WriteStream} in to an {@link OutputStream}.
  */
-public class OutputWriteStream extends OutputStream {
+public class OutputStreamToWriteStream extends OutputStream {
 	private final WriteStream<Buffer> response;
 	
     private final byte [] buffer;
     private int counter = 0;
 	
-    public OutputWriteStream(final WriteStream<Buffer> _response) {
+    public OutputStreamToWriteStream(final WriteStream<Buffer> _response) {
         this.response = _response;
         this.buffer = new byte[1024];
     }
