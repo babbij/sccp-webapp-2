@@ -1,4 +1,4 @@
-package com.goodforgoodbusiness.webapp;
+package com.colabriq.webapp;
 
 import java.nio.file.Paths;
 

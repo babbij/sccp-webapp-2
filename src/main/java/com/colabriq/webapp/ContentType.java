@@ -1,4 +1,4 @@
-package com.goodforgoodbusiness.webapp;
+package com.colabriq.webapp;
 
 public enum ContentType {
 	JSON("application/json"),

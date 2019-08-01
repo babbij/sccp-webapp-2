@@ -1,4 +1,4 @@
-package com.goodforgoodbusiness.webapp.jwt;
+package com.colabriq.webapp.jwt;
 
 import java.security.KeyFactory;
 import java.security.NoSuchAlgorithmException;

@@ -1,4 +1,4 @@
-package com.goodforgoodbusiness.webapp.cors;
+package com.colabriq.webapp.cors;
 
 import io.vertx.core.Handler;
 import io.vertx.ext.web.RoutingContext;

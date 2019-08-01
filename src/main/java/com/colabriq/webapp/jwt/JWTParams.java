@@ -1,4 +1,4 @@
-package com.goodforgoodbusiness.webapp.jwt;
+package com.colabriq.webapp.jwt;
 
 interface JWTParams {
 	public final String HEADER_NAME = "Authorization";

@@ -1,11 +1,11 @@
-package com.goodforgoodbusiness.webapp;
+package com.colabriq.webapp;
 
 import java.nio.file.Files;
 
-import com.goodforgoodbusiness.webapp.cors.CORSHeaderHandler;
-import com.goodforgoodbusiness.webapp.cors.CORSOptionsHandler;
-import com.goodforgoodbusiness.webapp.handler.FailureHandler;
-import com.goodforgoodbusiness.webapp.handler.PingHandler;
+import com.colabriq.webapp.cors.CORSHeaderHandler;
+import com.colabriq.webapp.cors.CORSOptionsHandler;
+import com.colabriq.webapp.handler.FailureHandler;
+import com.colabriq.webapp.handler.PingHandler;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 

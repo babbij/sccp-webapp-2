@@ -1,4 +1,4 @@
-package com.goodforgoodbusiness.webapp.error;
+package com.colabriq.webapp.error;
 
 import com.google.gson.annotations.Expose;
 

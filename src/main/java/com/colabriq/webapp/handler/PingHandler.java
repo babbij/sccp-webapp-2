@@ -1,6 +1,6 @@
-package com.goodforgoodbusiness.webapp.handler;
+package com.colabriq.webapp.handler;
 
-import static com.goodforgoodbusiness.webapp.ContentType.TEXT;
+import static com.colabriq.webapp.ContentType.TEXT;
 import static io.vertx.core.http.HttpHeaders.CONTENT_TYPE;
 
 import io.vertx.core.Handler;

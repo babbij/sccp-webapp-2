@@ -1,7 +1,7 @@
-package com.goodforgoodbusiness.webapp.jwt;
+package com.colabriq.webapp.jwt;
 
-import static com.goodforgoodbusiness.webapp.jwt.JWTParams.KEY_ALGORITHM;
-import static com.goodforgoodbusiness.webapp.jwt.JWTParams.KEY_SIZE;
+import static com.colabriq.webapp.jwt.JWTParams.KEY_ALGORITHM;
+import static com.colabriq.webapp.jwt.JWTParams.KEY_SIZE;
 
 import java.io.UnsupportedEncodingException;
 import java.security.Key;

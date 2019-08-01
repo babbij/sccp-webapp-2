@@ -1,4 +1,4 @@
-package com.goodforgoodbusiness.webapp;
+package com.colabriq.webapp;
 
 import static io.vertx.core.Vertx.vertx;
 

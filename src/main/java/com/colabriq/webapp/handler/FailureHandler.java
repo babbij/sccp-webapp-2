@@ -1,9 +1,9 @@
-package com.goodforgoodbusiness.webapp.handler;
+package com.colabriq.webapp.handler;
 
 import org.apache.log4j.Logger;
 
-import com.goodforgoodbusiness.webapp.ContentType;
-import com.goodforgoodbusiness.webapp.error.BadRequestException;
+import com.colabriq.webapp.ContentType;
+import com.colabriq.webapp.error.BadRequestException;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
