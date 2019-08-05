@@ -13,7 +13,7 @@
 
 	<artifactId>webapp</artifactId>
 	<packaging>jar</packaging>
-	<name>SCCP Webapp Commons</name>
+	<name>SCCP Webapp Library</name>
 
 	<dependencies>
 		<dependency>
