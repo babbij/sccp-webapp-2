@@ -46,9 +46,18 @@ public class BaseServer {
 		
 		this.httpServer = vertx
 			.createHttpServer()
-			.requestHandler(verticle.getRouter())
-			.listen(port)
-		;
+			.requestHandler(verticle.getRouter());
+		
+		// work around a possible race condition
+		
+		try {
+			Thread.sleep(1000);
+		}
+		catch (InterruptedException e) {
+			
+		}
+		
+		this.httpServer.listen(port);
 	}
 	
 	public void stop() {
