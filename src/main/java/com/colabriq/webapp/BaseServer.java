@@ -40,24 +40,17 @@ public class BaseServer {
 	}
 	
 	public void start() {
-		this.vertx.deployVerticle(verticle, deployOptions);
+		log.info("Deploying verticle " + verticle.getClass().getSimpleName());
 		
-		log.info("Starting webapp on " + port);
-		
-		this.httpServer = vertx
-			.createHttpServer()
-			.requestHandler(verticle.getRouter());
-		
-		// work around a possible race condition
-		
-		try {
-			Thread.sleep(1000);
-		}
-		catch (InterruptedException e) {
+		this.vertx.deployVerticle(verticle, deployOptions, result -> {
+			log.info("Starting webapp on " + port);
 			
-		}
-		
-		this.httpServer.listen(port);
+			this.httpServer = vertx
+				.createHttpServer()
+				.requestHandler(verticle.getRouter());
+			
+			this.httpServer.listen(port);
+		});
 	}
 	
 	public void stop() {
